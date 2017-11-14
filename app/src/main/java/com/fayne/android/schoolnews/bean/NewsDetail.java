@@ -36,9 +36,9 @@ public class NewsDetail {
     @Override
     public String toString() {
         return "NewsDetail{" +
-                "mTitle='" + mTitle + '\n' +
-                ", mInfo='" + mInfo + '\n' +
-                ", mText='" + mText + '\n' +
+                "mTitle='" + mTitle + '\'' +
+                ",\n mInfo='" + mInfo + '\'' +
+                ",\n mText='" + mText + '\'' +
                 '}';
     }
 }
