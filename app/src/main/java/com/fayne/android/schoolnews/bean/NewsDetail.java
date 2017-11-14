@@ -32,4 +32,13 @@ public class NewsDetail {
     public void setText(String text) {
         mText = text;
     }
+
+    @Override
+    public String toString() {
+        return "NewsDetail{" +
+                "mTitle='" + mTitle + '\n' +
+                ", mInfo='" + mInfo + '\n' +
+                ", mText='" + mText + '\n' +
+                '}';
+    }
 }

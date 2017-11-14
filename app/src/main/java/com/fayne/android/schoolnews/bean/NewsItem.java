@@ -77,7 +77,7 @@ public class NewsItem {
 
     @Override
     public String toString() {
-        return String.format("NewsItem[id=%d, title=%s, link=%s, imgLink=%s, content=%s, data=%s, type=%d]",
+        return String.format("NewsItem[id=%d, title=%s, link=%s, imgLink=%s, content=%s, date=%s, type=%d]",
                 mId, mTitle, mLink, mImgLink, mContent, mDate, mNewsType);
     }
 }
