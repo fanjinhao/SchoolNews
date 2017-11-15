@@ -38,7 +38,7 @@ public class MainFragment extends Fragment {
     public static final String TIP_ERROR_NO_NETWORK = "没有网络连接";
     public static final String TIP_ERROR_NO_SERVICE = "服务器错误";
 
-    public static final String NEWS_TYPE = "NEW_TYPE";
+    public static final String NEWS_TYPE = "NEWS_TYPE";
 
     private Context mContext;
     //默认新闻类型
@@ -211,10 +211,11 @@ public class MainFragment extends Fragment {
     }
 
     private void initView() {
-        mSwipeRefresh = getView().findViewById(R.id.id_swiperefresh);
+        mSwipeRefresh = (SwipeRefreshLayout) getView().findViewById(R.id.id_swiperefresh);
         mSwipeRefresh.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimary,
                 R.color.colorPrimary, R.color.colorPrimary);
-        mRecyclerView = getView().findViewById(R.id.id_recycleview);
+        mRecyclerView = (RecyclerView) getView().findViewById(R.id.id_recycleview);
+        mManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }

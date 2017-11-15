@@ -19,7 +19,7 @@ import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter {
 
-    private final int TYPE_NOMAL = 0;
+    private final int TYPE_NORMAL = 0;
     private final int TYPE_FOOT = 1;
     private Context mContext;
     private List<NewsItem> mDatas = new ArrayList<>();
@@ -55,12 +55,12 @@ public class NewsAdapter extends RecyclerView.Adapter {
         if (position + 1 == getItemCount()) {
             return TYPE_FOOT;
         }
-        return TYPE_NOMAL;
+        return TYPE_NORMAL;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == TYPE_NOMAL) {
+        if (viewType == TYPE_NORMAL) {
             View view = LayoutInflater.from(mContext).inflate(R.layout.news_listview_item, parent, false);
             return new ItemViewHolder(view);
         }
@@ -84,7 +84,7 @@ public class NewsAdapter extends RecyclerView.Adapter {
             }else{
                 ((ItemViewHolder) holder).mIcon.setVisibility(View.GONE);
             }
-            //TODO 设置回调事件处理
+
             if (mOnItemClickListener != null) {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override

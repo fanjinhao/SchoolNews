@@ -47,7 +47,7 @@ public class NewsInfoActivity extends BaseActivity {
                 mRefresh.setRefreshing(true);
             }
         });
-
+        new LoadDataTask().execute();
     }
 
     class LoadDataTask extends AsyncTask<Void, Void, String> {

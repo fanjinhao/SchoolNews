@@ -21,8 +21,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NEWS
-            + "(id integer PRIMARY KEY AUTOINCREMENT, title text, link text,"
-            + "imgLink text, content text, date text, newsType integer);");
+            + " (id integer PRIMARY KEY AUTOINCREMENT, title text, link text,"
+            + " imgLink text, content text, date text, newsType integer);");
     }
 
     @Override

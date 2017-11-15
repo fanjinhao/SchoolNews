@@ -20,8 +20,8 @@ public class FootHolder extends RecyclerView.ViewHolder{
 
     public FootHolder(View itemView) {
         super(itemView);
-        mFoot = (LinearLayout) itemView.findViewById(R.id.item_news_foot);
-        mProgressBar = (ProgressWheel) itemView.findViewById(R.id.item_news_progressbar);
-        mMessage = (TextView) itemView.findViewById(R.id.item_news_message);
+        mFoot = itemView.findViewById(R.id.item_news_foot);
+        mProgressBar = itemView.findViewById(R.id.item_news_progressbar);
+        mMessage = itemView.findViewById(R.id.item_news_message);
     }
 }

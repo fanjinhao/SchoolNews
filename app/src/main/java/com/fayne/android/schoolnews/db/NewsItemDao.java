@@ -31,8 +31,9 @@ public class NewsItemDao {
      */
     public void refreshData(int newsType, List<NewsItem> items) {
         SQLiteDatabase db = mHelper.getWritableDatabase();
-        String sql = "DELETE FROM " + mHelper.TABLE_NEWS + " WHERE newsType=?";
         try {
+            db.beginTransaction();
+            String sql = "DELETE FROM " + mHelper.TABLE_NEWS + " WHERE newsType=?";
             db.execSQL(sql, new Object[]{newsType});
             for (NewsItem item : items) {
                 if (item != null) {
@@ -48,7 +49,7 @@ public class NewsItemDao {
             }
             db.setTransactionSuccessful();
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
         } finally {
             db.endTransaction();
             db.close();
@@ -92,7 +93,7 @@ public class NewsItemDao {
         List<NewsItem> items = new ArrayList<>();
         SQLiteDatabase db = mHelper.getWritableDatabase();
         int offset = (page - 1) * PER_ITEM_COUNT;
-        String sql = "SELECT title, link, imgLink, content, date, newsType from " + mHelper.TABLE_NEWS + "WHERE newsType=? LIMIT ?,?;";
+        String sql = "SELECT title, link, imgLink, content, date, newsType from " + mHelper.TABLE_NEWS + " WHERE newsType=? LIMIT ?,?;";
         try {
             db.beginTransaction();
             Cursor cursor = db.rawQuery(sql, new String[]{newsType + "", offset + "", PER_ITEM_COUNT + ""});
