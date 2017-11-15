@@ -25,20 +25,23 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:text="安科资讯"
-            android:textColor="color/white"
+            android:textColor="@color/white"
             android:textSize="20sp" />
     </RelativeLayout>
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/id_tablayout"
-        style="@style/tablayoutStyle"
+        android:id="@+id/id_table_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        style="@style/tabLayoutStyle"
+        />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/id_viewpager"
+        android:id="@+id/id_view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
+
+
 
 </LinearLayout>

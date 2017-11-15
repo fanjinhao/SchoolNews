@@ -13,7 +13,7 @@ import org.jsoup.select.Elements;
  */
 
 public class NewsDetailBiz {
-    public static NewsDetail getNewsDetail(String html) {
+    public  NewsDetail getNewsDetail(String html) {
         NewsDetail news = new NewsDetail();
         Document doc = Jsoup.parse(html);
         Element detail = doc.select("div.list-rconC").first();

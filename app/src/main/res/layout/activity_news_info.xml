@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/topbar_height"
-        android:background="@color/topbar_bg"
+        android:background="@color/top_bar_bg"
         android:gravity="center_vertical">
 
         <ImageButton

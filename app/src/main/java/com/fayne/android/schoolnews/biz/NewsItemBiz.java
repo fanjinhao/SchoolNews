@@ -19,7 +19,7 @@ import java.util.List;
 
 public class NewsItemBiz {
 
-    public static  List<NewsItem> getNewsItems(int newsType, int curPage) throws CommonException{
+    public   List<NewsItem> getNewsItems(int newsType, int curPage) throws CommonException{
         List<NewsItem> newsItems = new ArrayList<>();
         String url = UrlUtil.getUrl(newsType, curPage);
         String htmlStr = DataUtil.doGet(url);

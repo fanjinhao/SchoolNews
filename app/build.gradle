@@ -26,5 +26,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     compile 'org.jsoup:jsoup:1.11.1'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:design:26.0.0'
     implementation 'com.android.support:recyclerview-v7:26.0.0-beta1'
 }
