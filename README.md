@@ -6,6 +6,6 @@ the school news of ahstu
 目前完成了一部分，包括四大模块，安科新闻，通知公告，校园动态，学术信息，方便师生查看信息
 
 此新闻客户端是基于jsoup解析网页实现的
-![](./resource/Screenshot_1510764824.png =30x40)
+![](./resource/Screenshot_1510764824.png =30x40){:height="30%" width="30%"}
 
 若使用有问题请issue
