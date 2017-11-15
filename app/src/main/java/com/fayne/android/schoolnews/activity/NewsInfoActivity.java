@@ -42,7 +42,7 @@ public class NewsInfoActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_info);
-        StatusBarUtil.setColor(this, 0x0000ff);
+        StatusBarUtil.setColor(this, 0x3F51B5);
         initView();
         mLink = getIntent().getStringExtra("link");
         mNewsDetail = new NewsDetailBiz();

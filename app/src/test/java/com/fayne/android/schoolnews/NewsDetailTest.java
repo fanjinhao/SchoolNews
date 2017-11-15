@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class NewsDetailTest {
 
-    @Test
+    /*@Test
     public void newsDetail() {
         try {
             String html = DataUtil.doGet("http://www.ahstu.edu.cn/info/1014/13632.htm");
@@ -22,5 +22,5 @@ public class NewsDetailTest {
         } catch (CommonException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

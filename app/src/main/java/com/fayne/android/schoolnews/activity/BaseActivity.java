@@ -4,11 +4,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.WindowManager;
-
-import com.fayne.android.schoolnews.R;
 import com.fayne.android.schoolnews.util.ActivityCollector;
-import com.githang.statusbar.StatusBarCompat;
 
 /**
  * Created by fan on 2017/11/15.

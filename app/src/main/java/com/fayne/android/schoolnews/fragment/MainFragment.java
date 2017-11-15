@@ -37,6 +37,7 @@ public class MainFragment extends Fragment {
     public static final int LOAD_MORE = 0x02;
     public static final String TIP_ERROR_NO_NETWORK = "没有网络连接";
     public static final String TIP_ERROR_NO_SERVICE = "服务器错误";
+    public static int mTotalPages = 2;
 
     public static final String NEWS_TYPE = "NEWS_TYPE";
 
@@ -119,10 +120,18 @@ public class MainFragment extends Fragment {
         }
     }
 
+    private void addPages() {
+        if (mCurPage <= 1) {
+            mCurPage = mTotalPages - 1;
+        } else {
+            mCurPage--;
+        }
+    }
+
     private String loadMoreData() {
         mAdapter.setLoading(true);
         if (isLoadFromService) {
-            mCurPage++;
+            addPages();
             try {
                 List<NewsItem> items = mNewsItemBiz.getNewsItems(mNewsType, mCurPage);
                 mAdapter.addDatas(items);
@@ -132,7 +141,7 @@ public class MainFragment extends Fragment {
                 return e.getMessage();
             }
         } else {
-            mCurPage++;
+            addPages();
             List<NewsItem> items = mNewsItemDao.getNewsItems(mCurPage, mNewsType);
             mAdapter.addDatas(items);
             return TIP_ERROR_NO_NETWORK;
@@ -142,6 +151,7 @@ public class MainFragment extends Fragment {
 
     private String refreshData() {
         if (NetUtil.isOnline(mContext)) {
+            mTotalPages = NewsItemBiz.getNewsTotal(mNewsType);
             mCurPage = 1;
             try {
                 List<NewsItem> items = mNewsItemBiz.getNewsItems(mNewsType, mCurPage);

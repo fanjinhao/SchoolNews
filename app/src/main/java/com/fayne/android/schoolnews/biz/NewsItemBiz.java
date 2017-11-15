@@ -19,11 +19,26 @@ import java.util.List;
 
 public class NewsItemBiz {
 
+    public static int getNewsTotal(int newsType) {
+        String s = "000";
+        try {
+            String url = UrlUtil.getUrl(newsType, 1);
+            String htmlStr = DataUtil.doGet(url);
+            Document doc = Jsoup.parse(htmlStr);
+            Element element = doc.select("td#fanye127268").first();
+            String text = element.text();
+            s = text;
+        } catch (CommonException e) {
+            e.printStackTrace();
+        }
+        return Integer.parseInt(s.substring(s.indexOf("/")+1));
+    }
+
     public  List<NewsItem> getNewsItems(int newsType, int curPage) throws CommonException{
         List<NewsItem> newsItems = new ArrayList<>();
         String url = UrlUtil.getUrl(newsType, curPage);
         String htmlStr = DataUtil.doGet(url);
-        NewsItem item = null;
+        NewsItem item;
         Document doc = Jsoup.parse(htmlStr);
         Elements units = doc.getElementsByClass("rigthConBox-conList");
         for (Element unit : units) {

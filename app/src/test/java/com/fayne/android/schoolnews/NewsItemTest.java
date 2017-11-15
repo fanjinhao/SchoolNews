@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 public class NewsItemTest {
-    @Test
+   /* @Test
     public void newsItem() {
         System.out.println(UrlUtil.getUrl(0, 1));
         try {
@@ -26,5 +26,5 @@ public class NewsItemTest {
             e.printStackTrace();
         }
 
-    }
+    }*/
 }

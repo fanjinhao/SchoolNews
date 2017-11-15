@@ -43,6 +43,4 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-
-
 </LinearLayout>
