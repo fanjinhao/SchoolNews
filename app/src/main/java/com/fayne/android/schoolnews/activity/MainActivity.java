@@ -1,17 +1,20 @@
 package com.fayne.android.schoolnews.activity;
 
+import android.os.Bundle;
+
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.TableLayout;
+
 
 import com.fayne.android.schoolnews.R;
+import com.fayne.android.schoolnews.fragment.MainFragment;
 
-public class MainActivity extends AppCompatActivity {
 
-    private TableLayout mTableLayout;
+public class MainActivity extends BaseActivity {
+
+    private TabLayout mTab;
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
     private String []title;
@@ -22,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTableLayout = findViewById(R.id.id_table_layout);
+        mTab = findViewById(R.id.id_table_layout);
         mViewPager = findViewById(R.id.id_view_pager);
 
         initData();
@@ -33,13 +36,20 @@ public class MainActivity extends AppCompatActivity {
         mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return null;
+                return MainFragment.newInstance(position);
             }
 
             @Override
             public int getCount() {
-                return 0;
+                return title.length;
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return title[position % title.length];
             }
         };
+        mViewPager.setAdapter(mAdapter);
+        mTab.setupWithViewPager(mViewPager);
     }
 }

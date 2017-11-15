@@ -1,13 +1,11 @@
 package com.fayne.android.schoolnews.fragment;
 
-import android.app.Fragment;
 import android.content.Context;
-import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,9 +13,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.fayne.android.schoolnews.R;
+import com.fayne.android.schoolnews.activity.NewsInfoActivity;
 import com.fayne.android.schoolnews.adapter.NewsAdapter;
 import com.fayne.android.schoolnews.adapter.OnItemClickListener;
 import com.fayne.android.schoolnews.bean.CommonException;
@@ -90,8 +88,7 @@ public class MainFragment extends Fragment {
 
         initData();
         initEvent();
-
-
+        new DownloadTask().execute(LOAD_REFRESH);
     }
 
     class DownloadTask extends AsyncTask<Integer, Void, String> {
@@ -196,7 +193,7 @@ public class MainFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 NewsItem item = mAdapter.getDatas().get(position);
-                //TODO newsinfo
+                NewsInfoActivity.actionStart(mContext, item.getLink());
             }
 
             @Override
