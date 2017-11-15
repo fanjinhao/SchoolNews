@@ -12,16 +12,16 @@ import com.fayne.android.schoolnews.R;
  */
 
 public class ItemViewHolder extends RecyclerView.ViewHolder {
-    ImageView mIcon;
+//    ImageView mIcon;
     TextView mTitle;
-    TextView mContent;
+//    TextView mContent;
     TextView mDate;
 
     public ItemViewHolder(View itemView) {
         super(itemView);
-        mIcon = itemView.findViewById(R.id.id_newsItem_icon);
+//        mIcon = itemView.findViewById(R.id.id_newsItem_icon);
         mTitle = itemView.findViewById(R.id.id_newsItem_title);
-        mContent = itemView.findViewById(R.id.id_newItem_content);
+//        mContent = itemView.findViewById(R.id.id_newItem_content);
         mDate = itemView.findViewById(R.id.id_newsItem_date);
     }
 }

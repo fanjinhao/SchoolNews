@@ -2,12 +2,14 @@ package com.fayne.android.schoolnews.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -20,6 +22,8 @@ import com.fayne.android.schoolnews.bean.HtmlFrame;
 import com.fayne.android.schoolnews.bean.NewsDetail;
 import com.fayne.android.schoolnews.biz.NewsDetailBiz;
 import com.fayne.android.schoolnews.util.DataUtil;
+import com.githang.statusbar.StatusBarCompat;
+import com.jaeger.library.StatusBarUtil;
 
 /**
  * Created by fan on 2017/11/15.
@@ -38,6 +42,7 @@ public class NewsInfoActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_info);
+        StatusBarUtil.setColor(this, 0x0000ff);
         initView();
         mLink = getIntent().getStringExtra("link");
         mNewsDetail = new NewsDetailBiz();

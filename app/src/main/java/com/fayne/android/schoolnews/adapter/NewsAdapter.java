@@ -75,14 +75,14 @@ public class NewsAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof ItemViewHolder) {
             ((ItemViewHolder) holder).mTitle.setText(mDatas.get(position).getTitle());
-            ((ItemViewHolder) holder).mContent.setText(mDatas.get(position).getContent());
+//            ((ItemViewHolder) holder).mContent.setText(mDatas.get(position).getContent());
             ((ItemViewHolder) holder).mDate.setText(mDatas.get(position).getDate());
             if (mDatas.get(position).getImgLink() != null) {
-                ((ItemViewHolder) holder).mIcon.setVisibility(View.VISIBLE);
+//                ((ItemViewHolder) holder).mIcon.setVisibility(View.VISIBLE);
                 Picasso.with(mContext).load(mDatas.get(position).getImgLink()).placeholder(R.mipmap.news_default_icon)
-                        .error(R.mipmap.news_default_icon).into(((ItemViewHolder) holder). mIcon);
+                        /*.error(R.mipmap.news_default_icon).into(((ItemViewHolder) holder). mIcon)*/;
             }else{
-                ((ItemViewHolder) holder).mIcon.setVisibility(View.GONE);
+//                ((ItemViewHolder) holder).mIcon.setVisibility(View.GONE);
             }
 
             if (mOnItemClickListener != null) {

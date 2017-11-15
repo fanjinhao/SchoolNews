@@ -211,10 +211,10 @@ public class MainFragment extends Fragment {
     }
 
     private void initView() {
-        mSwipeRefresh = (SwipeRefreshLayout) getView().findViewById(R.id.id_swiperefresh);
+        mSwipeRefresh = getView().findViewById(R.id.id_swiperefresh);
         mSwipeRefresh.setColorSchemeResources(R.color.colorPrimary, R.color.colorPrimary,
                 R.color.colorPrimary, R.color.colorPrimary);
-        mRecyclerView = (RecyclerView) getView().findViewById(R.id.id_recycleview);
+        mRecyclerView = getView().findViewById(R.id.id_recycleview);
         mManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());

@@ -29,4 +29,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:design:26.0.0'
     implementation 'com.android.support:recyclerview-v7:26.0.0-beta1'
+    compile 'com.githang:status-bar-compat:0.3'
+    compile 'com.jaeger.statusbarutil:library:1.4.0'
 }

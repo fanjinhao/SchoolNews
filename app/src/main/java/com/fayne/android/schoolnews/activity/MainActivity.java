@@ -6,10 +6,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.WindowManager;
 
 
 import com.fayne.android.schoolnews.R;
 import com.fayne.android.schoolnews.fragment.MainFragment;
+import com.githang.statusbar.StatusBarCompat;
+import com.jaeger.library.StatusBarUtil;
 
 
 public class MainActivity extends BaseActivity {
@@ -24,7 +27,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        StatusBarUtil.setColor(this, 0x0000ff);
         mTab = findViewById(R.id.id_table_layout);
         mViewPager = findViewById(R.id.id_view_pager);
 
