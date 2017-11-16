@@ -46,8 +46,7 @@
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/id_newsinfo_refresh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="40dp">
+            android:layout_height="match_parent" >
             <WebView
                 android:id="@+id/id_newsinfo_webview"
                 android:layout_width="match_parent"
@@ -64,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_share" />
+        app:srcCompat="@drawable/plus_24px"
+        tools:layout_editor_absoluteX="362dp" />
 
 </android.support.design.widget.CoordinatorLayout>
