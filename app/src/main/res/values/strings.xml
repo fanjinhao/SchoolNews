@@ -11,4 +11,8 @@
     <string name="yidong">移动开发</string>
     <string name="yunjisuan">云计算</string>
     <string name="yanfa">软件研发</string>
+    <string name="title_activity_sliderbar">SliderbarActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

@@ -8,27 +8,6 @@
     android:orientation="vertical"
     tools:context="com.fayne.android.schoolnews.activity.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/top_bar_bg"
-        android:gravity="center_vertical">
-
-        <ImageButton
-            android:id="@+id/ib_top_bar_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:src="@drawable/top_bar_icon_bg"/>
-        <TextView
-            android:layout_toRightOf="@+id/ib_top_bar_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="安科资讯"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-    </RelativeLayout>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/id_table_layout"

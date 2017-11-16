@@ -19,4 +19,6 @@
     <dimen name="textsize_14">14sp</dimen>
     <dimen name="textsize_12">12sp</dimen>
     <dimen name="textsize_10">10sp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
 </resources>
