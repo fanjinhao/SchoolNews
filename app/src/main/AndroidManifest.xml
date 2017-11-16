@@ -12,12 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
-            android:label="安科资讯"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-        <activity
             android:name=".activity.NewsInfoActivity"
             android:theme="@style/AppTheme.NoActionBar" >
 
