@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -16,6 +17,12 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bilibili.socialize.share.core.BiliShare;
+import com.bilibili.socialize.share.core.BiliShareConfiguration;
+import com.bilibili.socialize.share.core.SocializeListeners;
+import com.bilibili.socialize.share.core.SocializeMedia;
+import com.bilibili.socialize.share.core.shareparam.BaseShareParam;
+import com.bilibili.socialize.share.core.shareparam.ShareParamText;
 import com.fayne.android.schoolnews.R;
 import com.fayne.android.schoolnews.bean.CommonException;
 import com.fayne.android.schoolnews.bean.HtmlFrame;
@@ -23,6 +30,7 @@ import com.fayne.android.schoolnews.bean.NewsDetail;
 import com.fayne.android.schoolnews.biz.NewsDetailBiz;
 import com.fayne.android.schoolnews.util.DataUtil;
 import com.jaeger.library.StatusBarUtil;
+
 
 /**
  * Created by fan on 2017/11/15.
@@ -52,14 +60,52 @@ public class NewsInfoActivity extends BaseActivity {
             }
         });
         new LoadDataTask().execute();
+        BiliShareConfiguration configuration = new BiliShareConfiguration.Builder(this)
+                .qq("1106427353")
+                .build();
+        final BiliShare shareClient = BiliShare.global();
+        shareClient.config(configuration);
+        final BaseShareParam params = new ShareParamText("安科新闻", "测试新闻", mLink);
         FloatingActionButton fab = findViewById(R.id.fab_share);
         fab.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
+                shareClient.share(NewsInfoActivity.this, SocializeMedia.QQ, params, new SocializeListeners.ShareListener() {
+                    @Override
+                    public void onStart(SocializeMedia type) {
 
+                    }
+
+                    @Override
+                    public void onProgress(SocializeMedia type, String progressDesc) {
+
+                    }
+
+                    @Override
+                    public void onSuccess(SocializeMedia type, int code) {
+
+                    }
+
+                    @Override
+                    public void onError(SocializeMedia type, int code, Throwable error) {
+
+                    }
+
+                    @Override
+                    public void onCancel(SocializeMedia type) {
+
+                    }
+                });
             }
         });
     }
+
+
+
+
+
+
 
     class LoadDataTask extends AsyncTask<Void, Void, String> {
 
