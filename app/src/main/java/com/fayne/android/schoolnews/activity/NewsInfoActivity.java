@@ -2,7 +2,9 @@ package com.fayne.android.schoolnews.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -11,6 +13,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -49,7 +53,13 @@ public class NewsInfoActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_info);
-        StatusBarUtil.setColor(this, 0x3F51B5);
+//        StatusBarUtil.setColor(this, 0x3F51B5);
+        StatusBarUtil.setColor(this, Color.rgb(63, 81, 181));
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            Window window = this.getWindow();
+//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+//            window.setStatusBarColor();
+//        }
         initView();
         mLink = getIntent().getStringExtra("link");
         mNewsDetail = new NewsDetailBiz();
@@ -100,10 +110,6 @@ public class NewsInfoActivity extends BaseActivity {
             }
         });
     }
-
-
-
-
 
 
 

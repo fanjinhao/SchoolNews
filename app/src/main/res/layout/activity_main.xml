@@ -13,8 +13,7 @@
         android:id="@+id/id_table_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/tabLayoutStyle"
-        />
+        style="@style/tabLayoutStyle" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/id_view_pager"
