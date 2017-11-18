@@ -70,45 +70,6 @@ public class NewsInfoActivity extends BaseActivity {
             }
         });
         new LoadDataTask().execute();
-        BiliShareConfiguration configuration = new BiliShareConfiguration.Builder(this)
-                .qq("1106427353")
-                .build();
-        final BiliShare shareClient = BiliShare.global();
-        shareClient.config(configuration);
-        final BaseShareParam params = new ShareParamText("安科新闻", "测试新闻", mLink);
-        FloatingActionButton fab = findViewById(R.id.fab_share);
-        fab.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                shareClient.share(NewsInfoActivity.this, SocializeMedia.QQ, params, new SocializeListeners.ShareListener() {
-                    @Override
-                    public void onStart(SocializeMedia type) {
-
-                    }
-
-                    @Override
-                    public void onProgress(SocializeMedia type, String progressDesc) {
-
-                    }
-
-                    @Override
-                    public void onSuccess(SocializeMedia type, int code) {
-
-                    }
-
-                    @Override
-                    public void onError(SocializeMedia type, int code, Throwable error) {
-
-                    }
-
-                    @Override
-                    public void onCancel(SocializeMedia type) {
-
-                    }
-                });
-            }
-        });
     }
 
 
@@ -134,10 +95,53 @@ public class NewsInfoActivity extends BaseActivity {
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append(formatHtml(HtmlFrame.FRAME, news.getTitle(), news.getInfo(), news.getText()));
                 mWeb.loadData(stringBuffer.toString(), "text/html; charset=UTF-8", null);
+                share("安科新闻", news.getTitle());
             } else {
                 mTag.setVisibility(View.VISIBLE);
             }
             mRefresh.setRefreshing(false);
+        }
+
+        private void share(String title, String content) {
+            BiliShareConfiguration configuration = new BiliShareConfiguration.Builder(NewsInfoActivity.this)
+                    .qq("1106427353")
+                    .build();
+            final BiliShare shareClient = BiliShare.global();
+            shareClient.config(configuration);
+            final BaseShareParam params = new ShareParamText(title, content, mLink);
+            FloatingActionButton fab = findViewById(R.id.fab_share);
+            fab.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    shareClient.share(NewsInfoActivity.this, SocializeMedia.QQ, params, new SocializeListeners.ShareListener() {
+                        @Override
+                        public void onStart(SocializeMedia type) {
+
+                        }
+
+                        @Override
+                        public void onProgress(SocializeMedia type, String progressDesc) {
+
+                        }
+
+                        @Override
+                        public void onSuccess(SocializeMedia type, int code) {
+
+                        }
+
+                        @Override
+                        public void onError(SocializeMedia type, int code, Throwable error) {
+
+                        }
+
+                        @Override
+                        public void onCancel(SocializeMedia type) {
+
+                        }
+                    });
+                }
+            });
         }
     }
 

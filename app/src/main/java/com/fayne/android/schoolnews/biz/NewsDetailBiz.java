@@ -32,6 +32,7 @@ public class NewsDetailBiz {
                 }
                 img.attr("src", imgUrl)
                         .attr("width", "100%")
+                        .attr("height", "auto")
                         .attr("style", "");
             }
             buffer.append("<p>");
