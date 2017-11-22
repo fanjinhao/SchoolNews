@@ -2,6 +2,7 @@ package com.fayne.android.schoolnews.activity;
 
 import android.app.Application;
 
+import com.bilibili.socialize.share.core.BiliShare;
 import com.bilibili.socialize.share.core.BiliShareConfiguration;
 
 
@@ -14,6 +15,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
 
     }
 }

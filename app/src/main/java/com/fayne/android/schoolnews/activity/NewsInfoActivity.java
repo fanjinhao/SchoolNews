@@ -1,20 +1,19 @@
 package com.fayne.android.schoolnews.activity;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.animation.AlphaAnimation;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -48,18 +47,15 @@ public class NewsInfoActivity extends BaseActivity {
     private WebSettings mWebSettings;
     private NewsDetailBiz mNewsDetail;
     private TextView mTag;
+    private boolean mFabOpened;
+    private TextView mTextView;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_info);
-//        StatusBarUtil.setColor(this, 0x3F51B5);
-        StatusBarUtil.setColor(this, Color.rgb(63, 81, 181));
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            Window window = this.getWindow();
-//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            window.setStatusBarColor();
-//        }
+//        StatusBarUtil.setColor(this, Color.rgb(63, 81, 181));
         initView();
         mLink = getIntent().getStringExtra("link");
         mNewsDetail = new NewsDetailBiz();
@@ -70,6 +66,8 @@ public class NewsInfoActivity extends BaseActivity {
             }
         });
         new LoadDataTask().execute();
+        mToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(mToolbar);
     }
 
 
@@ -105,44 +103,80 @@ public class NewsInfoActivity extends BaseActivity {
         private void share(String title, String content) {
             BiliShareConfiguration configuration = new BiliShareConfiguration.Builder(NewsInfoActivity.this)
                     .qq("1106427353")
+                    .weixin("2333333")
+                    .sina("3973212242", "https://api.weibo.com/oauth2/default.html", "")
                     .build();
             final BiliShare shareClient = BiliShare.global();
             shareClient.config(configuration);
             final BaseShareParam params = new ShareParamText(title, content, mLink);
-            FloatingActionButton fab = findViewById(R.id.fab_share);
+            final FloatingActionButton fab = findViewById(R.id.fab_share);
+            mTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    closeMenu(fab);
+                }
+            });
+            mFabOpened = false;
             fab.setOnClickListener(new View.OnClickListener() {
 
                 @Override
-                public void onClick(View view) {
-                    shareClient.share(NewsInfoActivity.this, SocializeMedia.QQ, params, new SocializeListeners.ShareListener() {
-                        @Override
-                        public void onStart(SocializeMedia type) {
+                public void onClick(final View view) {
+                    if (!mFabOpened) {
+                        openMenu(view, shareClient, params);
+                    } else {
+                        closeMenu(view);
+                    }
 
-                        }
-
-                        @Override
-                        public void onProgress(SocializeMedia type, String progressDesc) {
-
-                        }
-
-                        @Override
-                        public void onSuccess(SocializeMedia type, int code) {
-
-                        }
-
-                        @Override
-                        public void onError(SocializeMedia type, int code, Throwable error) {
-
-                        }
-
-                        @Override
-                        public void onCancel(SocializeMedia type) {
-
-                        }
-                    });
                 }
             });
         }
+    }
+
+    private void closeMenu(View view) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "rotation", 0, -155, -135);
+        animator.setDuration(500);
+        animator.start();
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0.7f, 0);
+        alphaAnimation.setDuration(500);
+        mTextView.setAnimation(alphaAnimation);
+        mTextView.setVisibility(View.GONE);
+        mFabOpened = false;
+    }
+
+    private void openMenu(final View view, BiliShare shareClient, BaseShareParam params) {
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "rotation", 0, -155, -135);
+        animator.setDuration(500);
+        animator.start();
+        mTextView.setVisibility(View.VISIBLE);
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 0.7f);
+        alphaAnimation.setDuration(500);
+        alphaAnimation.setFillAfter(true);
+        mTextView.startAnimation(alphaAnimation);
+        mFabOpened = true;
+        shareClient.share(NewsInfoActivity.this, SocializeMedia.SINA, params, new SocializeListeners.ShareListener() {
+            @Override
+            public void onStart(SocializeMedia type) {
+            }
+
+            @Override
+            public void onProgress(SocializeMedia type, String progressDesc) {
+            }
+
+            @Override
+            public void onSuccess(SocializeMedia type, int code) {
+                Snackbar.make(view, "分享成功", Snackbar.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onError(SocializeMedia type, int code, Throwable error) {
+                Snackbar.make(view, "分享出错", Snackbar.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancel(SocializeMedia type) {
+                Snackbar.make(view, "取消分享", Snackbar.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
@@ -153,6 +187,7 @@ public class NewsInfoActivity extends BaseActivity {
         mBack = findViewById(R.id.id_imb_back);
         mWebSettings = mWeb.getSettings();
         mWebSettings.setSupportZoom(true);
+        mTextView = findViewById(R.id.cloud);
         mWeb.setWebViewClient(new WebViewClient() {
 
             @Override
@@ -176,6 +211,8 @@ public class NewsInfoActivity extends BaseActivity {
                 finish();
             }
         });
+
+
     }
 
     /***
