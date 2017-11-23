@@ -67,7 +67,7 @@ public class NewsInfoActivity extends BaseActivity {
         });
         new LoadDataTask().execute();
         mToolbar = findViewById(R.id.my_toolbar);
-        mToolbar.setTitle("");
+        mToolbar.setTitle("正文");
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.activity_back_bg);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -112,7 +112,6 @@ public class NewsInfoActivity extends BaseActivity {
             if (!TextUtils.isEmpty(s)) {
                 mTag.setVisibility(View.GONE);
                 NewsDetail news = mNewsDetail.getNewsDetail(s);
-                mToolbar.setTitle(news.getTitle());
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append(formatHtml(HtmlFrame.FRAME, news.getTitle(), news.getInfo(), news.getText()));
                 mWeb.loadData(stringBuffer.toString(), "text/html; charset=UTF-8", null);
@@ -207,7 +206,6 @@ public class NewsInfoActivity extends BaseActivity {
         mRefresh = findViewById(R.id.id_newsinfo_refresh);
         mWeb = findViewById(R.id.id_newsinfo_webview);
         mTag = findViewById(R.id.id_loadfailed);
-//        mBack = findViewById(R.id.id_imb_back);
         mWebSettings = mWeb.getSettings();
         mWebSettings.setSupportZoom(true);
         mTextView = findViewById(R.id.cloud);
@@ -228,14 +226,6 @@ public class NewsInfoActivity extends BaseActivity {
                 new LoadDataTask().execute();
             }
         });
-//        mBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                finish();
-//            }
-//        });
-
-
     }
 
     /***

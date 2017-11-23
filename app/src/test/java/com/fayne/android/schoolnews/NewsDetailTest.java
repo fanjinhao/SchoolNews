@@ -13,14 +13,14 @@ import org.junit.Test;
 
 public class NewsDetailTest {
 
-    /*@Test
+    @Test
     public void newsDetail() {
         try {
-            String html = DataUtil.doGet("http://www.ahstu.edu.cn/info/1014/13632.htm");
-            NewsDetail newsDetail = NewsDetailBiz.getNewsDetail(html);
+            String html = DataUtil.doGet("http://www.ahstu.edu.cn/info/1014/13825.htm");
+            NewsDetail newsDetail = new NewsDetailBiz().getNewsDetail(html);
             System.out.println(newsDetail);
         } catch (CommonException e) {
             e.printStackTrace();
         }
-    }*/
+    }
 }
