@@ -1,90 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.fayne.android.schoolnews.activity.SliderBarActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-
-    <TextView
-        android:id="@+id/cloud"
-        android:visibility="gone"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffff"
-        xmlns:android="http://schemas.android.com/apk/res/android" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        tools:context="com.fayne.android.schoolnews.activity.SliderBarActivity">
 
-        <RelativeLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/topbar_height"
-            android:background="@color/top_bar_bg"
-            android:gravity="center_vertical">
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <ImageButton
-                android:id="@+id/id_imb_back"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:src="@drawable/activity_back_bg" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/my_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:navigationIcon="@drawable/activity_back_bg"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+            </android.support.v7.widget.Toolbar>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="@string/content"
-                android:textColor="@color/white"
-                android:textSize="@dimen/textsize_20"
-                android:textStyle="bold" />
-        </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
+
+
         <TextView
-            android:id="@+id/id_loadfailed"
+            android:id="@+id/cloud"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/textsize_20"
-            android:text="@string/load_failed"
-            android:gravity="center"
-            android:visibility="gone"/>
-
-
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/id_newsinfo_refresh"
+            android:background="#ffff"
+            xmlns:android="http://schemas.android.com/apk/res/android" />
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            <WebView
-                android:id="@+id/id_newsinfo_webview"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/id_loadfailed"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textsize_20"
+                android:text="@string/load_failed"
+                android:gravity="center"
+                android:visibility="gone"/>
+
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/id_newsinfo_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
-            </WebView>
-        </android.support.v4.widget.SwipeRefreshLayout>
+                <WebView
+                    android:id="@+id/id_newsinfo_webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </WebView>
+            </android.support.v4.widget.SwipeRefreshLayout>
 
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:backgroundTint="#ff000099"
-        app:rippleColor="#33728dff"
-        app:srcCompat="@drawable/plus_24px"
-        tools:layout_editor_absoluteX="362dp" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:backgroundTint="#ff000099"
+            app:rippleColor="#33728dff"
+            app:srcCompat="@drawable/plus_24px"
+            tools:layout_editor_absoluteX="362dp" />
 
-</android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.DrawerLayout>

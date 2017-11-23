@@ -12,6 +12,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.webkit.WebSettings;
@@ -40,7 +42,6 @@ import com.jaeger.library.StatusBarUtil;
  */
 
 public class NewsInfoActivity extends BaseActivity {
-    private ImageView mBack;
     private SwipeRefreshLayout mRefresh;
     private WebView mWeb;
     private String mLink;
@@ -55,7 +56,6 @@ public class NewsInfoActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_info);
-//        StatusBarUtil.setColor(this, Color.rgb(63, 81, 181));
         initView();
         mLink = getIntent().getStringExtra("link");
         mNewsDetail = new NewsDetailBiz();
@@ -67,10 +67,32 @@ public class NewsInfoActivity extends BaseActivity {
         });
         new LoadDataTask().execute();
         mToolbar = findViewById(R.id.my_toolbar);
+        mToolbar.setTitle("");
         setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.drawable.activity_back_bg);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.newsdetail_menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     class LoadDataTask extends AsyncTask<Void, Void, String> {
 
@@ -90,10 +112,11 @@ public class NewsInfoActivity extends BaseActivity {
             if (!TextUtils.isEmpty(s)) {
                 mTag.setVisibility(View.GONE);
                 NewsDetail news = mNewsDetail.getNewsDetail(s);
+                mToolbar.setTitle(news.getTitle());
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append(formatHtml(HtmlFrame.FRAME, news.getTitle(), news.getInfo(), news.getText()));
                 mWeb.loadData(stringBuffer.toString(), "text/html; charset=UTF-8", null);
-                share("安科新闻", news.getTitle());
+                share(news.getTitle(), news.getText().substring(0, 10));
             } else {
                 mTag.setVisibility(View.VISIBLE);
             }
@@ -184,7 +207,7 @@ public class NewsInfoActivity extends BaseActivity {
         mRefresh = findViewById(R.id.id_newsinfo_refresh);
         mWeb = findViewById(R.id.id_newsinfo_webview);
         mTag = findViewById(R.id.id_loadfailed);
-        mBack = findViewById(R.id.id_imb_back);
+//        mBack = findViewById(R.id.id_imb_back);
         mWebSettings = mWeb.getSettings();
         mWebSettings.setSupportZoom(true);
         mTextView = findViewById(R.id.cloud);
@@ -205,12 +228,12 @@ public class NewsInfoActivity extends BaseActivity {
                 new LoadDataTask().execute();
             }
         });
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        mBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
 
 
     }
