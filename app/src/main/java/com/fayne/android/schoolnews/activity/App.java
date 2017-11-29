@@ -2,8 +2,6 @@ package com.fayne.android.schoolnews.activity;
 
 import android.app.Application;
 
-import com.bilibili.socialize.share.core.BiliShare;
-import com.bilibili.socialize.share.core.BiliShareConfiguration;
 
 
 /**

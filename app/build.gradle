@@ -2,6 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
     defaultConfig {
         applicationId "com.fayne.android.schoolnews"
         minSdkVersion 17
@@ -32,6 +38,4 @@ dependencies {
     compile 'com.githang:status-bar-compat:0.3'
     compile 'com.jaeger.statusbarutil:library:1.4.0'
     compile 'com.android.support:cardview-v7:26.0.0'
-    compile 'com.jungly.socialize:biliShare:0.1.0701' //必需
-    compile 'com.jungly.socialize:biliShare-util:0.1.0701@aar' //非必需
 }
