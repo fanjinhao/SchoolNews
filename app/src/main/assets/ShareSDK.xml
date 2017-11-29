@@ -56,7 +56,7 @@
         AppKey="3973212242"
         AppSecret="386626b76ea81af590059015a594835a"
         RedirectUrl="https://api.weibo.com/oauth2/default.html"
-        ShareByAppClient="false"
+        ShareByAppClient="true"
         Enable="true" />
 
     <TencentWeibo

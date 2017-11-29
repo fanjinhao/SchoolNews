@@ -121,7 +121,7 @@ public class NewsInfoActivity extends BaseActivity {
                 stringBuffer.append(formatHtml(HtmlFrame.FRAME, news.getTitle(), news.getInfo(), news.getText()));
                 mTitle = news.getTitle();
                 mInfo = news.getInfo();
-                mText = news.getTitle();
+                mText = news.getTitle() + "\n链接：" + mUrl;
                 mWeb.loadData(stringBuffer.toString(), "text/html; charset=UTF-8", null);
                 share("安科新闻", news.getTitle());
             } else {
