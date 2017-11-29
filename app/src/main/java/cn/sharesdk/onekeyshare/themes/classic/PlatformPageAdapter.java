@@ -99,7 +99,7 @@ public abstract class PlatformPageAdapter extends ViewPagerAdapter implements On
 	private View createPanel(Context context) {
 		LinearLayout llPanel = new LinearLayout(context);
 		llPanel.setOrientation(LinearLayout.VERTICAL);
-		llPanel.setBackgroundColor(0xfff2f2f2);
+		llPanel.setBackgroundColor(0xffffffff);
 
 		int lineCount = panelHeight / cellHeight;
 		LinearLayout[] llCells = new LinearLayout[lineCount * lineSize];

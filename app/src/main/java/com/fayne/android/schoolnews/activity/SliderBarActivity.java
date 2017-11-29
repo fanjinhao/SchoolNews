@@ -53,13 +53,6 @@ public class SliderBarActivity extends BaseActivity
         mViewPager = findViewById(R.id.id_view_pager);
 
         initData();
-        toolbar.setBackgroundColor(Color.parseColor("#ff33b5e5"));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            SystemBarTintManager tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setStatusBarTintResource(android.R.color.holo_blue_light);
-        }
-
     }
 
     private void initData() {

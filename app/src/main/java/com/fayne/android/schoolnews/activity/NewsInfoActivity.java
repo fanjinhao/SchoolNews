@@ -72,13 +72,6 @@ public class NewsInfoActivity extends BaseActivity {
                 finish();
             }
         });
-        mToolbar.setBackgroundColor(Color.parseColor("#ff33b5e5"));
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            SystemBarTintManager tintManager = new SystemBarTintManager(this);
-            tintManager.setStatusBarTintEnabled(true);
-            tintManager.setStatusBarTintResource(android.R.color.holo_blue_light);
-        }
     }
 
     @Override
