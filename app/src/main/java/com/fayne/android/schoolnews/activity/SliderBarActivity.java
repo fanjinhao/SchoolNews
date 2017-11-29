@@ -1,5 +1,7 @@
 package com.fayne.android.schoolnews.activity;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +22,7 @@ import android.view.MenuItem;
 import com.fayne.android.schoolnews.R;
 import com.fayne.android.schoolnews.activity.BaseActivity;
 import com.fayne.android.schoolnews.fragment.MainFragment;
+import com.fayne.android.schoolnews.widget.SystemBarTintManager;
 
 public class SliderBarActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -50,6 +53,12 @@ public class SliderBarActivity extends BaseActivity
         mViewPager = findViewById(R.id.id_view_pager);
 
         initData();
+        toolbar.setBackgroundColor(Color.parseColor("#ff33b5e5"));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(android.R.color.holo_blue_light);
+        }
 
     }
 

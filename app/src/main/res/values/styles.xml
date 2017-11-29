@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -10,7 +9,6 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -20,6 +18,16 @@
         <item name="tabSelectedTextColor">@color/top_bar_bg</item>
         <item name="tabBackground">@color/white</item>
     </style>
+
+    <style name="Theme"></style>
+
+    <style name="ThemeOverlay"></style>
+
+    <style name="Base.Widget"></style>
+
+    <style name="Base"></style>
+
+    <style name="Base.Widget.Design"></style>
 
 
 </resources>

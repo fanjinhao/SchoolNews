@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -34,6 +35,7 @@ import com.fayne.android.schoolnews.bean.HtmlFrame;
 import com.fayne.android.schoolnews.bean.NewsDetail;
 import com.fayne.android.schoolnews.biz.NewsDetailBiz;
 import com.fayne.android.schoolnews.util.DataUtil;
+import com.fayne.android.schoolnews.widget.SystemBarTintManager;
 import com.jaeger.library.StatusBarUtil;
 
 
@@ -76,6 +78,13 @@ public class NewsInfoActivity extends BaseActivity {
                 finish();
             }
         });
+        mToolbar.setBackgroundColor(Color.parseColor("#ff33b5e5"));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(android.R.color.holo_blue_light);
+        }
     }
 
     @Override
