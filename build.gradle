@@ -5,6 +5,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+        flatDir{
+            dirs 'libs' //就是你放aar的目录地址
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'

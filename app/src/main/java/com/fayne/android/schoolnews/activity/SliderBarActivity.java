@@ -1,10 +1,7 @@
 package com.fayne.android.schoolnews.activity;
 
-import android.graphics.Color;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -14,10 +11,11 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.fayne.android.schoolnews.R;
 import com.fayne.android.schoolnews.activity.BaseActivity;
@@ -49,8 +47,19 @@ public class SliderBarActivity extends BaseActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        View headerView = navigationView.getHeaderView(0);
+        ImageView imageView = headerView.findViewById(R.id.imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SliderBarActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         mTab = findViewById(R.id.id_table_layout);
         mViewPager = findViewById(R.id.id_view_pager);
+
 
         initData();
     }
@@ -118,16 +127,17 @@ public class SliderBarActivity extends BaseActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            Toast.makeText(this, "camera", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_gallery) {
-
+            Toast.makeText(this, "gallery", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_slideshow) {
-
+            Toast.makeText(this, "slidershow", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_manage) {
-
+            Toast.makeText(this, "manage", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
-
+            Toast.makeText(this, "nav_share", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_send) {
-
+            Toast.makeText(this, "nav_send", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

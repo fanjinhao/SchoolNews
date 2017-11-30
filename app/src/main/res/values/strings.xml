@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">安科资讯</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">设置</string>
 
     <string name="load_failed">逗我呢，没网络啊...</string>
 
@@ -10,6 +10,21 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_back">back</string>
+    <string name="action_back">返回</string>
     <string name="share">分享</string>
+    <string name="title_activity_login">登录</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">邮箱</string>
+    <string name="prompt_password">密码 (可选)</string>
+    <string name="action_sign_in">登录或注册</string>
+    <string name="action_sign_in_short">登录</string>
+    <string name="error_invalid_email">邮箱格式非法</string>
+    <string name="error_invalid_password">密码长度太短了</string>
+    <string name="error_incorrect_password">密码不正确</string>
+    <string name="error_field_required">此字段必填</string>
+    <string name="permission_rationale">"需要提供完整电子邮件"
+    </string>
+    <string name="icon_str">点击头像登录</string>
+    <string name="login">登录</string>
 </resources>

@@ -63,7 +63,7 @@ public class NewsInfoActivity extends BaseActivity {
         });
         new LoadDataTask().execute();
         mToolbar = findViewById(R.id.my_toolbar);
-        mToolbar.setTitle("正文");
+        mToolbar.setTitle(R.string.content);
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.activity_back_bg);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
