@@ -133,7 +133,6 @@ public class NewsInfoActivity extends BaseActivity {
             });
             mFabOpened = false;
             fab.setOnClickListener(new View.OnClickListener() {
-
                 @Override
                 public void onClick(final View view) {
                     showShare();
