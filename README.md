@@ -9,6 +9,7 @@ the school news of ahstu
 > 2017-12-2 13:12:17
 版本更新V1.1
 沉浸式状态栏，集成社会化分享
+
 ![](https://cdn.fayne.cn/schoolnews-v1.1.gif)
 
 
