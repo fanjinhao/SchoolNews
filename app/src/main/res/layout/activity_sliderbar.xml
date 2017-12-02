@@ -20,6 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:insetForeground="#00000000"
         app:headerLayout="@layout/nav_header_sliderbar"
         app:menu="@menu/activity_sliderbar_drawer" />
 
