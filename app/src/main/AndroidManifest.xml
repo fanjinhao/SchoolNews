@@ -25,7 +25,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
 
     <application
-        android:name="com.mob.MobApplication"
+        android:name=".activity.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_news"
         android:label="@string/app_name"
@@ -111,7 +111,7 @@
         </activity>
         <activity
             android:name=".activity.SliderBarActivity"
-            android:label="安科资讯"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

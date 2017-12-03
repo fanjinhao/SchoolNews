@@ -16,7 +16,7 @@ import java.util.List;
 
 public class NewsItemDao {
 
-    public static final int PER_ITEM_COUNT = 6;
+    public static final int PER_ITEM_COUNT = 16;
     private DBHelper mHelper;
 
     public static final String[] COLUMNS = {"title", "link", "imgLink", "content", "date", "newsType"};

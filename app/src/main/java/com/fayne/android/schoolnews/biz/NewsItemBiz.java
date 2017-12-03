@@ -25,13 +25,13 @@ public class NewsItemBiz {
             String url = UrlUtil.getUrl(newsType, 1);
             String htmlStr = DataUtil.doGet(url);
             Document doc = Jsoup.parse(htmlStr);
-            Element element = doc.select("td#fanye127268").first();
-            String text = element.text();
+            Element element = doc.select(".Next").first();
+            String text = element.attr("href").toString();
             s = text;
         } catch (CommonException e) {
             e.printStackTrace();
         }
-        return Integer.parseInt(s.substring(s.indexOf("/")+1));
+        return 1 + Integer.parseInt(s.substring(s.indexOf("/")+1, s.indexOf(".")));
     }
 
     public  List<NewsItem> getNewsItems(int newsType, int curPage) throws CommonException{

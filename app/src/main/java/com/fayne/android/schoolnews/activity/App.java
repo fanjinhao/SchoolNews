@@ -1,14 +1,13 @@
 package com.fayne.android.schoolnews.activity;
 
-import android.app.Application;
-
+import com.mob.MobApplication;
 
 
 /**
  * Created by fan on 2017/11/17.
  */
 
-public class App extends Application {
+public class App extends MobApplication {
 
     @Override
     public void onCreate() {

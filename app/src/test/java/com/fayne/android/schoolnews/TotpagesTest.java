@@ -12,6 +12,6 @@ public class TotpagesTest {
 
     @Test
     public void totPages() {
-        System.out.println(NewsItemBiz.getNewsTotal(1));
+        System.out.println(NewsItemBiz.getNewsTotal(0));
     }
 }

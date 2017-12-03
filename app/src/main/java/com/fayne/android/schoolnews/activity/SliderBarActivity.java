@@ -30,6 +30,7 @@ public class SliderBarActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private View mNewsInfo;
+    private Toolbar mToolbar;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -39,12 +40,15 @@ public class SliderBarActivity extends BaseActivity
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mNewsInfo.setVisibility(View.VISIBLE);
+                    mToolbar.setTitle(R.string.app_name);
                     return true;
                 case R.id.navigation_dashboard:
                     mNewsInfo.setVisibility(View.GONE);
+                    mToolbar.setTitle(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
                     mNewsInfo.setVisibility(View.GONE);
+                    mToolbar.setTitle(R.string.title_notifications);
                     return true;
             }
             return false;
@@ -60,8 +64,8 @@ public class SliderBarActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliderbar);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         mNewsInfo = findViewById(R.id.news_info);
 
@@ -71,7 +75,7 @@ public class SliderBarActivity extends BaseActivity
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 

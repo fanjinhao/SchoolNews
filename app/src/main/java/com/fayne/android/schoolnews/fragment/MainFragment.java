@@ -46,6 +46,7 @@ public class MainFragment extends Fragment {
     private int mNewsType = Constant.NEWS_TYPE_AKXW;
     //当前页面
     private int mCurPage = 1;
+    private int mRealPage = 1;
     //业务处理类
     private NewsItemBiz mNewsItemBiz;
 
@@ -121,11 +122,13 @@ public class MainFragment extends Fragment {
     }
 
     private void addPages() {
+        initTotal();
         if (mCurPage <= 1) {
             mCurPage = mTotalPages - 1;
         } else {
             mCurPage--;
         }
+        mRealPage++;
     }
 
     private String loadMoreData() {
@@ -142,7 +145,7 @@ public class MainFragment extends Fragment {
             }
         } else {
             addPages();
-            List<NewsItem> items = mNewsItemDao.getNewsItems(mCurPage, mNewsType);
+            List<NewsItem> items = mNewsItemDao.getNewsItems(mRealPage, mNewsType);
             mAdapter.addDatas(items);
             return TIP_ERROR_NO_NETWORK;
         }
@@ -151,7 +154,6 @@ public class MainFragment extends Fragment {
 
     private String refreshData() {
         if (NetUtil.isOnline(mContext)) {
-            mTotalPages = NewsItemBiz.getNewsTotal(mNewsType);
             mCurPage = 1;
             try {
                 List<NewsItem> items = mNewsItemBiz.getNewsItems(mNewsType, mCurPage);
@@ -166,12 +168,13 @@ public class MainFragment extends Fragment {
                 return TIP_ERROR_NO_SERVICE;
             }
         } else {
-            List<NewsItem> items = mNewsItemDao.getNewsItems(mCurPage, mNewsType);
+            List<NewsItem> items = mNewsItemDao.getNewsItems(mRealPage, mNewsType);
             if (!items.isEmpty()) {
                 mAdapter.setDatas(items);
                 isLoadFromService = false;
+            } else {
+                return TIP_ERROR_NO_NETWORK;
             }
-            return TIP_ERROR_NO_NETWORK;
         }
         return null;
     }
@@ -211,6 +214,10 @@ public class MainFragment extends Fragment {
 
             }
         });
+    }
+
+    private void initTotal() {
+        mTotalPages = NewsItemBiz.getNewsTotal(mNewsType);
     }
 
     private void initData() {
