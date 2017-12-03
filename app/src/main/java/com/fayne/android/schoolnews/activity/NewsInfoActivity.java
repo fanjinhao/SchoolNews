@@ -2,9 +2,7 @@ package com.fayne.android.schoolnews.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -44,7 +42,6 @@ public class NewsInfoActivity extends BaseActivity {
     private String mInfo = "信息";
     private String mUrl = "https://www.fayne.cn";
     private TextView mTag;
-    private boolean mFabOpened;
     private TextView mTextView;
     private Toolbar mToolbar;
 
@@ -131,7 +128,6 @@ public class NewsInfoActivity extends BaseActivity {
 
                 }
             });
-            mFabOpened = false;
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(final View view) {

@@ -9,6 +9,6 @@
     tools:context="com.fayne.android.schoolnews.activity.SliderBarActivity"
     tools:showIn="@layout/app_bar_sliderbar">
 
-    <include layout="@layout/activity_main" />
+    <include layout="@layout/activity_bottom" />
 
 </android.support.constraint.ConstraintLayout>

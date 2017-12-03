@@ -27,4 +27,9 @@
     </string>
     <string name="icon_str">点击头像登录</string>
     <string name="login">登录</string>
+    <string name="title_activity_scrolling_news_info">ScrollingNewsInfoActivity</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">主页</string>
+    <string name="title_dashboard">面板</string>
+    <string name="title_notifications">通知</string>
 </resources>

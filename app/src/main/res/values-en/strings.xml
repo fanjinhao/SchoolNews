@@ -24,4 +24,9 @@
     </string>
     <string name="login">Login</string>
     <string name="content">Details</string>
+    <string name="title_activity_scrolling_news_info">ScrollingNewsInfoActivity</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

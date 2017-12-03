@@ -3,6 +3,8 @@ package com.fayne.android.schoolnews.activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -27,6 +29,28 @@ import com.fayne.android.schoolnews.widget.SystemBarTintManager;
 public class SliderBarActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private View mNewsInfo;
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    mNewsInfo.setVisibility(View.VISIBLE);
+                    return true;
+                case R.id.navigation_dashboard:
+                    mNewsInfo.setVisibility(View.GONE);
+                    return true;
+                case R.id.navigation_notifications:
+                    mNewsInfo.setVisibility(View.GONE);
+                    return true;
+            }
+            return false;
+        }
+    };
+
     private TabLayout mTab;
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
@@ -38,6 +62,11 @@ public class SliderBarActivity extends BaseActivity
         setContentView(R.layout.activity_sliderbar);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mNewsInfo = findViewById(R.id.news_info);
+
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -141,7 +170,8 @@ public class SliderBarActivity extends BaseActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-            Toast.makeText(this, "camera", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "测试", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, SliderBarActivity.class));
         } else if (id == R.id.nav_gallery) {
             Toast.makeText(this, "gallery", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_slideshow) {
