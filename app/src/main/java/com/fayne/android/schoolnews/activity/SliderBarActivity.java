@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.fayne.android.schoolnews.R;
 import com.fayne.android.schoolnews.activity.BaseActivity;
 import com.fayne.android.schoolnews.fragment.MainFragment;
+import com.fayne.android.schoolnews.util.ActivityCollector;
 import com.fayne.android.schoolnews.widget.SystemBarTintManager;
 
 public class SliderBarActivity extends BaseActivity
@@ -191,5 +192,11 @@ public class SliderBarActivity extends BaseActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.finishAll();
     }
 }

@@ -46,7 +46,6 @@ public class MainFragment extends Fragment {
     private int mNewsType = Constant.NEWS_TYPE_AKXW;
     //当前页面
     private int mCurPage = 1;
-    private int mRealPage = 1;
     //业务处理类
     private NewsItemBiz mNewsItemBiz;
 
@@ -114,7 +113,7 @@ public class MainFragment extends Fragment {
             } else {
                 mAdapter.setError(s);
                 mAdapter.setLoading(true);
-                Snackbar.make(mSwipeRefresh, s, Snackbar.LENGTH_LONG).show();
+                Snackbar.make(mSwipeRefresh, s, Snackbar.LENGTH_SHORT).show();
             }
             mSwipeRefresh.setRefreshing(false);
             mAdapter.notifyDataSetChanged();
@@ -122,19 +121,13 @@ public class MainFragment extends Fragment {
     }
 
     private void addPages() {
-        initTotal();
-        if (mCurPage <= 1) {
-            mCurPage = mTotalPages - 1;
-        } else {
-            mCurPage--;
-        }
-        mRealPage++;
+        mCurPage++;
     }
 
     private String loadMoreData() {
+        addPages();
         mAdapter.setLoading(true);
         if (isLoadFromService) {
-            addPages();
             try {
                 List<NewsItem> items = mNewsItemBiz.getNewsItems(mNewsType, mCurPage);
                 mAdapter.addDatas(items);
@@ -144,8 +137,7 @@ public class MainFragment extends Fragment {
                 return e.getMessage();
             }
         } else {
-            addPages();
-            List<NewsItem> items = mNewsItemDao.getNewsItems(mRealPage, mNewsType);
+            List<NewsItem> items = mNewsItemDao.getNewsItems(mCurPage, mNewsType);
             mAdapter.addDatas(items);
             return TIP_ERROR_NO_NETWORK;
         }
@@ -153,8 +145,8 @@ public class MainFragment extends Fragment {
     }
 
     private String refreshData() {
+        mCurPage = 1;
         if (NetUtil.isOnline(mContext)) {
-            mCurPage = 1;
             try {
                 List<NewsItem> items = mNewsItemBiz.getNewsItems(mNewsType, mCurPage);
                 if (!items.isEmpty()) {
@@ -168,13 +160,12 @@ public class MainFragment extends Fragment {
                 return TIP_ERROR_NO_SERVICE;
             }
         } else {
-            List<NewsItem> items = mNewsItemDao.getNewsItems(mRealPage, mNewsType);
+            List<NewsItem> items = mNewsItemDao.getNewsItems(mCurPage, mNewsType);
             if (!items.isEmpty()) {
                 mAdapter.setDatas(items);
                 isLoadFromService = false;
-            } else {
-                return TIP_ERROR_NO_NETWORK;
             }
+            return TIP_ERROR_NO_NETWORK;
         }
         return null;
     }
@@ -214,10 +205,6 @@ public class MainFragment extends Fragment {
 
             }
         });
-    }
-
-    private void initTotal() {
-        mTotalPages = NewsItemBiz.getNewsTotal(mNewsType);
     }
 
     private void initData() {

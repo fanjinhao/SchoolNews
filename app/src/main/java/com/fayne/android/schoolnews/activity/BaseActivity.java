@@ -1,11 +1,10 @@
 package com.fayne.android.schoolnews.activity;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.WindowManager;
+
 
 import com.fayne.android.schoolnews.util.ActivityCollector;
 

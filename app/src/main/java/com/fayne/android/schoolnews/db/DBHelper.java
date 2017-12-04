@@ -10,8 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    public static final int DB_VERSION = 1;
-    public static final String DB_NAME = "news";
+    public static final int DB_VERSION = 2;
+    public static final String DB_NAME = "news.db";
     public static final String TABLE_NEWS = "tb_news";
 
     public DBHelper(Context context) {
@@ -21,7 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NEWS
-            + " (id integer PRIMARY KEY AUTOINCREMENT, title text, link text,"
+            + " (id integer PRIMARY KEY AUTOINCREMENT, title text UNIQUE, link text UNIQUE,"
             + " imgLink text, content text, date text, newsType integer);");
     }
 

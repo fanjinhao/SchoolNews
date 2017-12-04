@@ -36,6 +36,10 @@ public class NewsItemBiz {
 
     public  List<NewsItem> getNewsItems(int newsType, int curPage) throws CommonException{
         List<NewsItem> newsItems = new ArrayList<>();
+        int tot = getNewsTotal(newsType);
+        if (curPage > 1) {
+            curPage = tot - curPage + 1;
+        }
         String url = UrlUtil.getUrl(newsType, curPage);
         String htmlStr = DataUtil.doGet(url);
         NewsItem item;
