@@ -37,7 +37,6 @@ public class MainFragment extends Fragment {
     public static final int LOAD_MORE = 0x02;
     public static final String TIP_ERROR_NO_NETWORK = "没有网络连接";
     public static final String TIP_ERROR_NO_SERVICE = "服务器错误";
-    public static int mTotalPages = 2;
 
     public static final String NEWS_TYPE = "NEWS_TYPE";
 

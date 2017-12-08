@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -24,6 +25,8 @@ import com.fayne.android.schoolnews.bean.NewsDetail;
 import com.fayne.android.schoolnews.biz.NewsDetailBiz;
 import com.fayne.android.schoolnews.util.DataUtil;
 import com.fayne.android.schoolnews.widget.SystemBarTintManager;
+
+import java.lang.reflect.InvocationTargetException;
 
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
@@ -69,6 +72,34 @@ public class NewsInfoActivity extends BaseActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            mWeb.getClass().getMethod("onPause").invoke(mWeb, (Object[]) null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            mWeb.getClass().getMethod("onResume").invoke(mWeb, (Object[]) null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -171,8 +202,14 @@ public class NewsInfoActivity extends BaseActivity {
         mRefresh = findViewById(R.id.id_newsinfo_refresh);
         mWeb = findViewById(R.id.id_newsinfo_webview);
         mTag = findViewById(R.id.id_loadfailed);
+        //获取webView的相关设置
         mWebSettings = mWeb.getSettings();
-        mWebSettings.setSupportZoom(true);
+        //webView的缓存模式
+        mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+
+        mWebSettings.setPluginState(WebSettings.PluginState.ON);
+        mWeb.setWebChromeClient(new WebChromeClient());
+
         mTextView = findViewById(R.id.cloud);
         mWeb.setWebViewClient(new WebViewClient() {
 
