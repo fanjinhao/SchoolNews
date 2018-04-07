@@ -12,5 +12,6 @@ public class App extends MobApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
     }
 }

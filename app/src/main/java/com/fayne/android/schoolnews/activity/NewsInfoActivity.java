@@ -2,6 +2,7 @@ package com.fayne.android.schoolnews.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -23,10 +24,16 @@ import com.fayne.android.schoolnews.bean.CommonException;
 import com.fayne.android.schoolnews.bean.HtmlFrame;
 import com.fayne.android.schoolnews.bean.NewsDetail;
 import com.fayne.android.schoolnews.biz.NewsDetailBiz;
+import com.fayne.android.schoolnews.fragment.MainFragment;
 import com.fayne.android.schoolnews.util.DataUtil;
+import com.fayne.android.schoolnews.view.CommentListTextView;
 import com.fayne.android.schoolnews.widget.SystemBarTintManager;
+import com.sohu.cyan.android.sdk.api.Config;
+import com.sohu.cyan.android.sdk.api.CyanSdk;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
@@ -73,6 +80,7 @@ public class NewsInfoActivity extends BaseActivity {
             }
         });
     }
+
 
     @Override
     protected void onPause() {
@@ -149,6 +157,7 @@ public class NewsInfoActivity extends BaseActivity {
                 mTag.setVisibility(View.VISIBLE);
             }
             mRefresh.setRefreshing(false);
+
         }
 
         private void share(String title, String content) {
@@ -167,6 +176,7 @@ public class NewsInfoActivity extends BaseActivity {
             });
         }
     }
+
 
     private void showShare() {
         OnekeyShare oks = new OnekeyShare();
