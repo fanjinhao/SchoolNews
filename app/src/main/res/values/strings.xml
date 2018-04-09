@@ -32,4 +32,5 @@
     <string name="title_home">主页</string>
     <string name="title_dashboard">面板</string>
     <string name="title_notifications">通知</string>
+    <string name="comment">Comment</string>
 </resources>

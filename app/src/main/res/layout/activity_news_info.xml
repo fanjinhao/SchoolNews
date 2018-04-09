@@ -48,7 +48,7 @@
             <TextView
                 android:id="@+id/id_loadfailed"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/textsize_20"
                 android:text="@string/load_failed"
@@ -59,15 +59,30 @@
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/id_newsinfo_refresh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_weight="1"
+                android:layout_height="0dp" >
                 <WebView
                     android:id="@+id/id_newsinfo_webview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
                 </WebView>
             </android.support.v4.widget.SwipeRefreshLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-
+                <EditText
+                    android:id="@+id/et_comment"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+                <Button
+                    android:id="@+id/btn_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/comment"/>
+            </LinearLayout>
 
 
         </LinearLayout>
