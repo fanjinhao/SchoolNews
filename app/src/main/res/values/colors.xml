@@ -6,4 +6,12 @@
     <color name="blue">#0000ff</color>
     <color name="top_bar_bg">#ff33b5e5</color>
     <color name="white">#ffffff</color>
+    <color name="mainColor">#949393</color>
+
+    <color name="grey">#ececec</color>
+    <color name="txtgrey">#7c7b7b</color>
+    <color name="greywhite">#aeacac</color>
+    <color name="colorComment">#0f0f0f</color>
+    <color name="main_comment_name">#00b2ff</color>
+    <color name="red">#FF0000</color>
 </resources>

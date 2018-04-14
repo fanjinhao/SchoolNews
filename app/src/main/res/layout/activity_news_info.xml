@@ -65,27 +65,14 @@
                     android:id="@+id/id_newsinfo_webview"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" >
-                </WebView>
-            </android.support.v4.widget.SwipeRefreshLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/et_comment"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content" />
-                <Button
-                    android:id="@+id/btn_comment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/comment"/>
+                </WebView>
+
+            </android.support.v4.widget.SwipeRefreshLayout>
+
             </LinearLayout>
 
 
-        </LinearLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_share"

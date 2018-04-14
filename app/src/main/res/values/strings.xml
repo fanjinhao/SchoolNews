@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">安科资讯</string>
-    <string name="action_settings">设置</string>
+    <string name="action_settings">登出</string>
 
     <string name="load_failed">逗我呢，没网络啊...</string>
 
@@ -34,16 +34,17 @@
     <string name="title_notifications">通知</string>
     <string name="comment">Comment</string>
     <!-- Strings related to login -->
-    <string name="sign_in">Sign in</string>
-    <string name="register">Register</string>
-    <string name="title_activity_register">Register in</string>
-    <string name="action_register">Register</string>
-    <string name="hint_username">Please enter username</string>
-    <string name="prompt_password_again">Please enter password again</string>
-    <string name="str_logout">Logout</string>
+    <string name="sign_in">登录</string>
+    <string name="register">注册</string>
+    <string name="title_activity_register">登录</string>
+    <string name="action_register">登录</string>
+    <string name="hint_username">请输入用户名</string>
+    <string name="prompt_password_again">请再次输入密码</string>
+    <string name="str_logout">登出</string>
     <string name="hide_down">隐藏</string>
     <string name="comment_content">评论内容</string>
     <string name="send">发送</string>
     <string name="delete_comment">删除</string>
     <string name="action_exit">登出</string>
+    <string name="comment_title">评你所评，畅所欲言</string>
 </resources>
