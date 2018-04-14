@@ -100,7 +100,7 @@ public class SliderBarActivity extends BaseActivity
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SliderBarActivity.this, LoginActivity.class);
+                Intent intent = new Intent(SliderBarActivity.this, SliderBarActivity.class);
                 startActivity(intent);
             }
         });
