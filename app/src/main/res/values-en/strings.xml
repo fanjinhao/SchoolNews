@@ -7,6 +7,7 @@
     <string name="action_back">Back</string>
     <string name="share">Share</string>
     <string name="title_activity_login">Login</string>
+    <string name="action_exit">Logout</string>
 
     <!-- Strings related to login -->
     <string name="app_name">Anker School News</string>

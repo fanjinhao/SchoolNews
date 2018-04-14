@@ -1,6 +1,7 @@
 package com.fayne.android.schoolnews.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -32,6 +33,7 @@ public class SliderBarActivity extends BaseActivity
 
     private View mNewsInfo;
     private Toolbar mToolbar;
+    public static String user;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -95,12 +97,24 @@ public class SliderBarActivity extends BaseActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        //login begin
+        SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
+        String name = pref.getString("user", "null");
+        if (!name.equals("null")) {
+            user = name;
+        } else {
+            startActivity(new Intent(SliderBarActivity.this, LoginActivity.class));
+            finish();
+        }
+        //login end
+
         View headerView = navigationView.getHeaderView(0);
         ImageView imageView = headerView.findViewById(R.id.imageView);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SliderBarActivity.this, SliderBarActivity.class);
+                Intent intent = new Intent(SliderBarActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -161,6 +175,11 @@ public class SliderBarActivity extends BaseActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
+            editor.putString("user", "null");
+            editor.commit();
+            startActivity(new Intent(SliderBarActivity.this, LoginActivity.class));
+            SliderBarActivity.this.finish();
             return true;
         }
 
