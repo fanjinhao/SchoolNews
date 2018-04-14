@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import android.view.KeyEvent;
@@ -75,6 +76,18 @@ public class LoginActivity extends AppCompatActivity {
                 new LoginHandle().run();
             }
         });
+
+        Toolbar mToolbar = findViewById(R.id.my_toolbar);
+        mToolbar.setTitle(R.string.login);
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.drawable.activity_back_bg);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
     @Override

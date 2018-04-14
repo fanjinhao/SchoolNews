@@ -101,7 +101,7 @@
                 fab:menu_labels_ellipsize="end"
                 fab:menu_labels_singleLine="true"
                 fab:menu_backgroundColor="#ccffffff"
-                fab:menu_fab_label="Menu label">
+                fab:menu_fab_label="@string/menu">
 
                 <com.github.clans.fab.FloatingActionButton
                     android:id="@+id/fab_share"
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/share"
                     fab:fab_size="mini"
-                    fab:fab_label="Disabled" />
+                    fab:fab_label="@string/fab_share" />
 
                 <com.github.clans.fab.FloatingActionButton
                     android:id="@+id/fab_comment"
@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/pencil"
                     fab:fab_size="mini"
-                    fab:fab_label="Remove button" />
+                    fab:fab_label="@string/fab_commnet" />
 
 
             </com.github.clans.fab.FloatingActionMenu>

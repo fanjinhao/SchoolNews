@@ -163,9 +163,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.CommentActivity"></activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:label="@string/login">
+        </activity>
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            android:label="@string/register"/>
+        <activity
+            android:name=".activity.CommentActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/comment">
+        </activity>
     </application>
 
 </manifest>

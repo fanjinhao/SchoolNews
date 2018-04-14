@@ -47,4 +47,7 @@
     <string name="delete_comment">删除</string>
     <string name="action_exit">登出</string>
     <string name="comment_title">评你所评，畅所欲言</string>
+    <string name="fab_commnet">评论</string>
+    <string name="fab_share">分享</string>
+    <string name="menu">菜单</string>
 </resources>

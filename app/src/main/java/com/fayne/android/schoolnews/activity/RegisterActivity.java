@@ -3,6 +3,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -40,6 +41,18 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         initView();
+
+        Toolbar mToolbar = findViewById(R.id.my_toolbar);
+        mToolbar.setTitle(R.string.register);
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.drawable.activity_back_bg);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override

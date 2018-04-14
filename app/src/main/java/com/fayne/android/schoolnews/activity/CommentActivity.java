@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -69,13 +70,25 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comment);
+        setContentView(R.layout.activity_app_comment);
 
         // add by fanjinhao for comment begin
         initUser();
         initCommentView();
         new LoadCommentHandle().run();
         // add by fanjinhao for comment end
+
+        Toolbar mToolbar = findViewById(R.id.my_toolbar);
+        mToolbar.setTitle(R.string.comment);
+        setSupportActionBar(mToolbar);
+        mToolbar.setNavigationIcon(R.drawable.activity_back_bg);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
     }
 
 
