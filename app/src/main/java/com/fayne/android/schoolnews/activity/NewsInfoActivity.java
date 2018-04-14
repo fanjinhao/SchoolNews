@@ -1,67 +1,33 @@
 package com.fayne.android.schoolnews.activity;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.fayne.android.schoolnews.R;
-import com.fayne.android.schoolnews.adapter.AdapterComment;
-import com.fayne.android.schoolnews.bean.Comment;
 import com.fayne.android.schoolnews.bean.CommonException;
 import com.fayne.android.schoolnews.bean.HtmlFrame;
 import com.fayne.android.schoolnews.bean.NewsDetail;
 import com.fayne.android.schoolnews.biz.NewsDetailBiz;
-import com.fayne.android.schoolnews.fragment.MainFragment;
 import com.fayne.android.schoolnews.util.DataUtil;
-import com.fayne.android.schoolnews.view.CommentListTextView;
-import com.fayne.android.schoolnews.widget.SystemBarTintManager;
-import com.sohu.cyan.android.sdk.api.Config;
-import com.sohu.cyan.android.sdk.api.CyanSdk;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
@@ -83,6 +49,9 @@ public class NewsInfoActivity extends BaseActivity {
     private TextView mTag;
     private TextView mTextView;
     private Toolbar mToolbar;
+    private FloatingActionMenu mMenuRed;
+    private FloatingActionButton mFabShare;
+    private FloatingActionButton mFabComment;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -202,7 +171,6 @@ public class NewsInfoActivity extends BaseActivity {
                 mInfo = news.getInfo();
                 mText = news.getTitle() + "\n链接：" + mUrl;
                 mWeb.loadData(stringBuffer.toString(), "text/html; charset=UTF-8", null);
-                share("安科新闻", news.getTitle());
             } else {
                 mTag.setVisibility(View.VISIBLE);
             }
@@ -210,21 +178,6 @@ public class NewsInfoActivity extends BaseActivity {
 
         }
 
-        private void share(String title, String content) {
-            final FloatingActionButton fab = findViewById(R.id.fab_share);
-            mTextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-                }
-            });
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View view) {
-                    showShare();
-                }
-            });
-        }
     }
 
 
@@ -259,6 +212,23 @@ public class NewsInfoActivity extends BaseActivity {
 
 
     private void initView() {
+        // FloatActionBar begin
+        mMenuRed = findViewById(R.id.menu_red);
+        mFabComment = findViewById(R.id.fab_comment);
+        mFabComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(NewsInfoActivity.this, CommentActivity.class));
+            }
+        });
+        mFabShare = findViewById(R.id.fab_share);
+        mFabShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showShare();
+            }
+        });
+        //FloatActionBar end
         mRefresh = findViewById(R.id.id_newsinfo_refresh);
         mWeb = findViewById(R.id.id_newsinfo_webview);
         mTag = findViewById(R.id.id_loadfailed);

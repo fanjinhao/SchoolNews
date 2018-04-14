@@ -27,6 +27,7 @@ android {
 }
 
 dependencies {
+    compile 'com.github.clans:fab:1.6.4'
     compile 'com.mcxiaoke.volley:library:1.0.19'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.0.0'

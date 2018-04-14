@@ -13,5 +13,42 @@
         <attr name="matProg_linearProgress" format="boolean" />
     </declare-styleable>
 
+    <declare-styleable name="poster">
+        <attr name="icon" format="reference" />
+        <attr name="iconW" format="dimension" />
+        <attr name="iconH" format="dimension" />
+        <attr name="text" format="reference|string" />
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="background" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="settingItem">
+        <attr name="name" format="reference|string" />
+        <attr name="value" format="reference|string" />
+    </declare-styleable>
+    <declare-styleable name="FabTagLayout">
+        <attr name="tagText" format="string" />
+    </declare-styleable>
+    <attr name="animationMode">
+        <enum name="fade" value="0"/>
+        <enum name="scale" value="1"/>
+        <enum name="bounce" value="2"/>
+    </attr>
+
+    <attr name="position">
+        <enum name="left_bottom" value="0"/>
+        <enum name="right_bottom" value="1"/>
+    </attr>
+
+    <declare-styleable name="MultiFloatingActionButton">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="switchFabIcon" format="reference"/>
+        <attr name="switchFabColor" format="color"/>
+        <attr name="animationDuration" format="integer"/>
+        <attr name="animationMode"/>
+        <attr name="position"/>
+    </declare-styleable>
+
+
 
 </resources>

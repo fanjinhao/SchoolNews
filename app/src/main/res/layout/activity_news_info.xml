@@ -74,14 +74,55 @@
 
 
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_share"
+       <!-- <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             app:srcCompat="@drawable/plus_24px"
-            tools:layout_editor_absoluteX="362dp" />
+            tools:layout_editor_absoluteX="362dp" />-->
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/menu_red"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                fab:menu_labels_ellipsize="end"
+                fab:menu_labels_singleLine="true"
+                fab:menu_backgroundColor="#ccffffff"
+                fab:menu_fab_label="Menu label">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/share"
+                    fab:fab_size="mini"
+                    fab:fab_label="Disabled" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/fab_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/pencil"
+                    fab:fab_size="mini"
+                    fab:fab_label="Remove button" />
+
+
+            </com.github.clans.fab.FloatingActionMenu>
+
+        </FrameLayout>
 
      </android.support.design.widget.CoordinatorLayout>
 </android.support.v4.widget.DrawerLayout>
