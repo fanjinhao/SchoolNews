@@ -1,0 +1,18 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CyActivity$DummySectionFragment" >
+    <!-- 为了使浮层在最底部，需要将其他view放在一个布局中(使用linearLayout，relativelayout均可)，并设置如下宽高 -->
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >	<WebView
+	        android:id="@+id/webview"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" /> >
+    </RelativeLayout>
+
+</LinearLayout>

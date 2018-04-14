@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/loginweibo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="微博登录" />
+
+    <Button
+        android:id="@+id/loginqq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="QQ登录" />
+
+    <Button
+        android:id="@+id/loginsohu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="搜狐登录" />
+    
+    <Button
+        android:id="@+id/loginsso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="单点登录" />
+
+</LinearLayout>

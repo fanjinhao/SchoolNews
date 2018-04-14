@@ -1,0 +1,92 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+ 
+-libraryjars libs/android-support-v4.jar  
+
+-dontwarn com.avos.avoscloud.**
+
+-keep class android.net.http.** { *;}
+
+-keep class android.content.** { *; }
+ 
+-keep class android.support.v4.** { *; }
+-keep class com.sina.** { *; }
+-keep class com.weibo.** {*; }   
+-keep class com.tencent.** {*; } 
+-keep class com.sohu.cyan.android.sdk.api.** { *;}
+-keep class com.sohu.cyan.android.sdk.push.** { *;}
+-keep class com.sohu.cyan.android.sdk.entity.** { *;}
+-keep class com.sohu.cyan.android.sdk.response.** { *;}
+-keep class com.sohu.cyan.android.sdk.http.** { *;}
+-keep class com.google.gson.JsonObject { *; }
+-keep class com.badlogic.** { *; }
+-keep class * implements com.badlogic.gdx.utils.Json*
+-keep class com.google.** { *; }
+
+-keepattributes Signature
+
+-keepclasseswithmembernames class * {                                           # 保持 native 方法不被混淆
+    native <methods>;
+}
+-keepclasseswithmembers class * {  
+    public <init>(android.content.Context);  
+}  
+  
+
+-keepclasseswithmembers class * {                                               # 保持自定义控件类不被混淆
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);     # 保持自定义控件类不被混淆
+}
+
+-keepclassmembers class * extends android.app.Activity {                        # 保持自定义控件类不被混淆
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {                                                      # 保持枚举 enum 类不被混淆
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {                                # 保持 Parcelable 不被混淆
+  public static final android.os.Parcelable$Creator *;
+}
+
+
+-keepclassmembers class com.sohu.cyan.android.sdk.activity.ShareActivity {
+	public *;
+}
+
+-keepclassmembers class * extends android.app.Activity {  
+   public void *(android.view.View);  
+}  
+  
+-keepclassmembers enum * {  
+    public static **[] values();  
+    public static ** valueOf(java.lang.String);  
+}  
+#保护指定的类文件和类的成员  
+-keep class * implements android.os.Parcelable {  
+  public static final android.os.Parcelable$Creator *;  
+}  
+

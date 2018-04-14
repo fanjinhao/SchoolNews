@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_post_comment.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\post_comment.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_reply_item.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\reply_item.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_toolbar_demo.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\toolbar_demo.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\menu_cy.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\menu\\cy.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_activity_cy.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\activity_cy.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_app_login_layout.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\app_login_layout.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_replies.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\replies.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_api_demo.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\api_demo.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_reply_header.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\reply_header.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_comment_item.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\comment_item.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_login.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\login.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_comment_list.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\comment_list.xml"
+    },
+    {
+        "merged": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\build\\intermediates\\res\\merged\\debug\\layout_comment_list_header.xml.flat",
+        "source": "E:\\AndroidStudioProjects\\SchoolNews\\Demo\\src\\main\\res\\layout\\comment_list_header.xml"
+    }
+]
