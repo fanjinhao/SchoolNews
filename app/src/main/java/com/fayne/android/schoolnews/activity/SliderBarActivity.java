@@ -191,6 +191,7 @@ public class SliderBarActivity extends BaseActivity
             public void onClick(View view) {
                 Intent intent = new Intent(SliderBarActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
