@@ -42,8 +42,8 @@ public class NewsInfoActivity extends BaseActivity {
     private String mLink;
     private WebSettings mWebSettings;
     private NewsDetailBiz mNewsDetail;
-    private String mTitle = "安科资讯";
-    public static String mText = "安科资讯";
+    public static String mTitle = "安科资讯";
+    private  String mText = "安科资讯";
     private String mInfo = "信息";
     public static String mUrl = "https://www.fayne.cn";
     private TextView mTag;

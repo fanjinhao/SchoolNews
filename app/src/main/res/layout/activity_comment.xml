@@ -18,7 +18,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/comment_title"
-                    android:textStyle="normal"
+                    android:textStyle="bold"
                     android:layout_marginLeft="4dp"
                     android:textSize="20sp" />
                 <TextView
@@ -26,6 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
+                    android:textStyle="italic|bold"
                     android:textSize="15sp"
                     android:text="title"/>
                 <ListView

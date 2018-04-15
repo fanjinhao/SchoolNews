@@ -105,7 +105,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         mUrl = NewsInfoActivity.mUrl;
-        mTitle = NewsInfoActivity.mText;
+        mTitle = NewsInfoActivity.mTitle;
     }
 
     @Override

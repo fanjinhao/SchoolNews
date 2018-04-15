@@ -115,8 +115,10 @@
                             style="?android:textAppearanceSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginTop="16dp"
+                            android:background="@color/colorPrimary"
+                            android:textColor="@color/white"
+                            android:layout_weight="1"
                             android:text="@string/register"
                             android:textStyle="bold" />
                         <Button
@@ -125,7 +127,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
                             android:layout_marginTop="16dp"
+                            android:background="@color/colorPrimary"
+                            android:textColor="@color/white"
                             android:text="@string/sign_in"
                             android:textStyle="bold" />
 
