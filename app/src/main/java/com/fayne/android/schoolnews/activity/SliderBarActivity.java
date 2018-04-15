@@ -24,9 +24,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -45,13 +48,16 @@ import com.fayne.android.schoolnews.adapter.AdapterComment;
 import com.fayne.android.schoolnews.bean.Comment;
 import com.fayne.android.schoolnews.fragment.MainFragment;
 import com.fayne.android.schoolnews.util.ActivityCollector;
+import com.fayne.android.schoolnews.util.UrlUtil;
 import com.fayne.android.schoolnews.widget.SystemBarTintManager;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.just.agentweb.AgentWeb;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -79,6 +85,20 @@ public class SliderBarActivity extends BaseActivity
     private FloatingActionMenu mFabMenu;
     private FloatingActionButton mFabComment;
 
+
+    // url of school begin
+    private ImageButton mBGXT;
+    private ImageButton mJWXT;
+    private ImageButton mYJXT;
+    private ImageButton mXGXT;
+    private ImageButton mCWXT;
+    private ImageButton mSZHXY;
+    private ImageButton mFWXT;
+    private ImageButton mTSG;
+    private ImageButton mXLCX;
+    private ImageButton mXCBC;
+
+    // url of school end
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -163,6 +183,8 @@ public class SliderBarActivity extends BaseActivity
         //login end
 
         View headerView = navigationView.getHeaderView(0);
+        TextView icon = headerView.findViewById(R.id.icon_str);
+        icon.setText("你好："  + user + "\n" + "点击头像进入登录页");
         ImageView imageView = headerView.findViewById(R.id.imageView);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,6 +200,110 @@ public class SliderBarActivity extends BaseActivity
 
         initData();
         new LoadCommentHandle().run();
+
+        initUrl();
+
+    }
+
+
+    private void ready(String url) {
+        Intent intent = new Intent(this, WebViewActivity.class);
+        Bundle data = new Bundle();
+        data.putString("url", url);
+        intent.putExtras(data);
+        startActivity(intent);
+//        mWebView.setVisibility(View.VISIBLE);
+//        mSchoolUrl.setVisibility(View.GONE);
+//        mAgentWeb = AgentWeb.with(SliderBarActivity.this)
+//                .setAgentWebParent((LinearLayout) mWebView, new LinearLayout.LayoutParams(-1, -1))
+//                .useDefaultIndicator()
+//                .createAgentWeb()
+//                .ready()
+//                .go(url);
+    }
+
+    private void initUrl() {
+
+        mBGXT = findViewById(R.id.bgxt);
+        mBGXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.BGXT;
+                ready(url);
+            }
+        });
+        mJWXT = findViewById(R.id.jwxt);
+        mJWXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.JWXT;
+                ready(url);
+            }
+        });
+        mYJXT = findViewById(R.id.yjxt);
+        mYJXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.YJXT;
+                ready(url);
+            }
+        });
+        mXGXT = findViewById(R.id.xgxt);
+        mXGXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.XGXT;
+                ready(url);
+            }
+        });
+        mCWXT = findViewById(R.id.cwpt);
+        mCWXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.CWXT;
+                ready(url);
+            }
+        });
+        mSZHXY = findViewById(R.id.szhxy);
+        mSZHXY.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.STHXY;
+                ready(url);
+            }
+        });
+        mFWXT = findViewById(R.id.fwcl);
+        mFWXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.FWXL;
+                ready(url);
+            }
+        });
+        mTSG = findViewById(R.id.tsg);
+        mTSG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.TSG;
+                ready(url);
+            }
+        });
+        mXLCX = findViewById(R.id.xlcx);
+        mXLCX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.XLCX;
+                ready(url);
+            }
+        });
+        mXCBC = findViewById(R.id.xcbc);
+        mXCBC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = UrlUtil.XCBC;
+                ready(url);
+            }
+        });
     }
 
     private void initView() {
@@ -222,6 +348,9 @@ public class SliderBarActivity extends BaseActivity
 
             }
         });
+
+
+
     }
 
     @Override
@@ -484,20 +613,27 @@ public class SliderBarActivity extends BaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-            Toast.makeText(this, "测试", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, SliderBarActivity.class));
-        } else if (id == R.id.nav_gallery) {
-            Toast.makeText(this, "gallery", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_slideshow) {
-            Toast.makeText(this, "slidershow", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_manage) {
-            Toast.makeText(this, "manage", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_share) {
-            Toast.makeText(this, "nav_share", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_send) {
-            Toast.makeText(this, "nav_send", Toast.LENGTH_SHORT).show();
+        if (id == R.id.nav_weibo) {
+            String url = "https://weibo.com/ahstunews";
+            Intent intent = new Intent(SliderBarActivity.this, WebViewActivity.class);
+            Bundle data = new Bundle();
+            data.putString("url", url);
+            intent.putExtras(data);
+            startActivity(intent);
+        } else if (id  == R.id.nav_home) {
+            String url = "http://www.ahstu.edu.cn/";
+            Intent intent = new Intent(SliderBarActivity.this, WebViewActivity.class);
+            Bundle data = new Bundle();
+            data.putString("url", url);
+            intent.putExtras(data);
+            startActivity(intent);
+        } else if (id == R.id.author_home) {
+            String url = "https://www.fayne.cn/board";
+            Intent intent = new Intent(SliderBarActivity.this, WebViewActivity.class);
+            Bundle data = new Bundle();
+            data.putString("url", url);
+            intent.putExtras(data);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

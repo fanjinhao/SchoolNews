@@ -77,8 +77,6 @@ public class NewsInfoActivity extends BaseActivity {
                 finish();
             }
         });
-
-
     }
 
     @Override

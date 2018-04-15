@@ -59,10 +59,9 @@ public class LoginActivity extends AppCompatActivity {
         //if logged success
         SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
         String name = pref.getString("user", "null");
-        if (!name.equals("null")) {
-            startActivity(new Intent(LoginActivity.this, SliderBarActivity.class));
-            LoginActivity.this.finish();
-        }
+        SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
+        editor.putString("user", "null");
+        editor.commit();
         mRegisterButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,6 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Log.e(TAG, "onErrorResponse: error", error);
+                    Toast.makeText(LoginActivity.this, "网络错误", Toast.LENGTH_SHORT).show();
                 }
             };
 

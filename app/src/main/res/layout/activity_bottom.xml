@@ -13,7 +13,8 @@
 
                 <include
                     android:id="@+id/url_list"
-                    layout="@layout/activity_url" />
+                    layout="@layout/activity_url"
+                    android:visibility="gone"/>
                 <include
                     android:id="@+id/social_comment"
                     layout="@layout/activity_social"
