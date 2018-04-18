@@ -21,6 +21,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <!-- 短信验证登陆功能需要添加次权限来自动填充验证码，用不到可以去掉 -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
@@ -177,8 +180,11 @@
             android:name=".activity.CommentActivity"
             android:label="@string/comment"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activity.WebViewActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".activity.WebViewActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:hardwareAccelerated="true"
+            android:configChanges="orientation|screenSize">
 
         </activity>
     </application>

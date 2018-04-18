@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 import com.fayne.android.schoolnews.R;
@@ -22,6 +23,8 @@ public class WebViewActivity extends Activity {
 
         Bundle data = getIntent().getExtras();
         String url = data.getString("url");
+        // 隐藏状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         new WebHandle(url).run();
     }
 
@@ -46,5 +49,18 @@ public class WebViewActivity extends Activity {
                 .ready()
                 .go(url);
     }
+
+    @Override
+    protected void onPause() {
+        mAgentWeb.getWebLifeCycle().onPause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        mAgentWeb.getWebLifeCycle().onResume();
+        super.onResume();
+    }
+
 
 }
