@@ -37,7 +37,7 @@
     <string name="sign_in">登录</string>
     <string name="register">注册</string>
     <string name="title_activity_register">登录</string>
-    <string name="action_register">登录</string>
+    <string name="action_register">注册</string>
     <string name="hint_username">请输入用户名</string>
     <string name="prompt_password_again">请再次输入密码</string>
     <string name="str_logout">登出</string>

@@ -8,7 +8,7 @@
         android:id="@+id/comment_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:background="@color/white"
         android:layout_marginBottom="50dp" />
 
     <RelativeLayout
@@ -38,7 +38,7 @@
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="@color/grey"
+            android:background="@color/white"
             android:layout_toRightOf="@id/hide_down"
             android:layout_marginLeft="10dp"/>
         <EditText
